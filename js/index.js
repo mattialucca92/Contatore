@@ -1,21 +1,47 @@
-let contatore = document.getElementById("contatore");
-let aumento = document.getElementById("plus");
-let decremento = document.getElementById("minus");
-let reset = document.getElementById("reset");
+const wrapper = document.createElement("div");
+wrapper.classList.add("wrapper");
+
+const contatore = document.createElement("h1");
+contatore.classList.add("contatore");
+contatore.textContent = "0";
+
+const container = document.createElement("div");
+container.classList.add("container");
+
+const minus = document.createElement("button");
+minus.classList.add("minus");
+minus.textContent = "-";
+
+const reset = document.createElement("button");
+reset.classList.add("reset");
+reset.textContent = "Reset";
+
+const plus = document.createElement("button");
+plus.classList.add("plus");
+plus.textContent = "+"
+
+container.appendChild(minus);
+container.appendChild(reset);
+container.appendChild(plus);
+
+wrapper.appendChild(contatore);
+wrapper.appendChild(container);
+
+document.body.appendChild(wrapper);
 
 let valoreContatore = 0;
 
-aumento.addEventListener("click", function () {
-  valoreContatore += 1;
-  document.getElementById("contatore").innerHTML = valoreContatore;
+minus.addEventListener("click", function () {
+  valoreContatore -= 1;
+  contatore.textContent = valoreContatore;
 });
 
-decremento.addEventListener("click", function () {
-  valoreContatore -= 1;
-  document.getElementById("contatore").innerHTML = valoreContatore;
+plus.addEventListener("click", function () {
+  valoreContatore += 1;
+  contatore.textContent = valoreContatore;
 });
 
 reset.addEventListener("click", function () {
   valoreContatore = 0;
-  document.getElementById("contatore").innerHTML = valoreContatore;
+  contatore.textContent = valoreContatore;
 });
